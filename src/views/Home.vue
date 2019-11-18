@@ -21,13 +21,10 @@ export default {
 
 <style scoped>
   .flex-container {
+    height: 700px;
     display: flex;
     justify-content: center;
     align-items: center;
     align-content: center;
-  }
-
-  .flex-item {
-    align-self: center;
   }
 </style>

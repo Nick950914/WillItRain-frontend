@@ -1,27 +1,18 @@
 <template>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-    <a class="navbar-brand" href="#">Will It Rain?</a>
-    <button
-      class="navbar-toggler"
-      type="button"
-      data-toggle="collapse"
-      data-target="#navbarNavAltMarkup"
-      aria-controls="navbarNavAltMarkup"
-      aria-expanded="false"
-      aria-label="Toggle navigation"
-    >
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-      <div class="ml-auto navbar-nav">
-<!--        <a class="nav-item nav-link active" href="#"-->
-<!--          >Home <span class="sr-only">(current)</span></a-->
-<!--        >-->
-        <a class="nav-item nav-link" href="#">Login</a>
-        <a class="nav-item nav-link" href="#">Sign Up</a>
-      </div>
+    <div>
+        <b-navbar toggleable="lg" type="dark" variant="info">
+            <b-navbar-brand href="#">Will It Rain?</b-navbar-brand>
+
+            <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
+
+            <b-collapse id="nav-collapse" is-nav>
+                <b-navbar-nav class="ml-auto">
+                    <b-nav-item href="#">Login</b-nav-item>
+                    <b-nav-item href="#">Register</b-nav-item>
+                </b-navbar-nav>
+            </b-collapse>
+        </b-navbar>
     </div>
-  </nav>
 </template>
 
 <script>
