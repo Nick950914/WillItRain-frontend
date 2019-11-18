@@ -1,7 +1,9 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
+  <div class="flex-container">
+    <div class="flex-item">
+      <img alt="Vue logo" src="../assets/logo.png"/>
+      <HelloWorld msg="Welcome to Your Vue.js App"/>
+    </div>
   </div>
 </template>
 
@@ -10,9 +12,22 @@
 import HelloWorld from "@/components/HelloWorld.vue";
 
 export default {
-  name: "home",
-  components: {
-    HelloWorld
-  }
+    name: "home",
+    components: {
+        HelloWorld
+    }
 };
 </script>
+
+<style scoped>
+  .flex-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+  }
+
+  .flex-item {
+    align-self: center;
+  }
+</style>
