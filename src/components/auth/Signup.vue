@@ -21,7 +21,7 @@
                   @blur="$v.password.$touch()"
                   v-model="password">
           <p v-if="!$v.password.required">Please provide a valid password.</p>
-          <p v-if="!$v.password.minLength">Password needs to be at least {{$v.username.$params.minLength.min}} symbols long.</p>
+          <p v-if="!$v.password.minLength">Password needs to be at least {{$v.password.$params.minLength.min}} symbols long.</p>
         </div>
         <div class="input" :class="{invalid: $v.confirmPassword.$error}">
           <label for="confirm-password">Confirm Password</label>
