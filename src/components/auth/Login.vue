@@ -7,7 +7,7 @@
           <input
                   type="text"
                   id="username"
-                  v-model="username">
+                  v-model="login">
         </div>
         <div class="input">
           <label for="password">Password</label>
@@ -28,14 +28,14 @@
 export default {
     data () {
         return {
-            username: '',
+            login: '',
             password: ''
         }
     },
     methods: {
         onSubmit () {
             const formData = {
-                email: this.email,
+                login: this.login,
                 password: this.password,
             };
             console.log(formData)
