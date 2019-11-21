@@ -10,8 +10,8 @@
                   @blur="$v.login.$touch()"
                   v-model="login">
           <p v-if="!$v.login.required">Please provide a valid username.</p>
-          <p v-if="!$v.login.minLength">Username needs to be at least {{$v.login.$params.minLength.min}} symbols long.</p>
-          <p v-if="!$v.login.maxLength">Username cannot to be longer than {{$v.login.$params.maxLength.max}} symbols.</p>
+<!--          <p v-if="!$v.login.minLength">Username needs to be at least {{$v.login.$params.minLength.min}} symbols long.</p>-->
+<!--          <p v-if="!$v.login.maxLength">Username cannot to be longer than {{$v.login.$params.maxLength.max}} symbols.</p>-->
         </div>
         <div class="input" :class="{invalid: $v.password.$error}">
           <label for="password">Password</label>
@@ -68,8 +68,8 @@ export default {
     validations: {
         login: {
             required,
-            minLength: minLength(6),
-            maxLength: maxLength(12)
+            // minLength: minLength(6),
+            // maxLength: maxLength(12)
         },
         password: {
             required,
