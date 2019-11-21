@@ -2,16 +2,16 @@
   <div id="signup">
     <div class="signup-form">
       <form @submit.prevent="onSubmit">
-        <div class="input" :class="{invalid: $v.username.$error}">
+        <div class="input" :class="{invalid: $v.login.$error}">
           <label for="username">Username</label>
           <input
                   type="text"
                   id="username"
-                  @blur="$v.username.$touch()"
-                  v-model="username">
-          <p v-if="!$v.username.required">Please provide a valid username.</p>
-          <p v-if="!$v.username.minLength">Username needs to be at least {{$v.username.$params.minLength.min}} symbols long.</p>
-          <p v-if="!$v.username.maxLength">Username cannot to be longer than {{$v.username.$params.maxLength.max}} symbols.</p>
+                  @blur="$v.login.$touch()"
+                  v-model="login">
+          <p v-if="!$v.login.required">Please provide a valid username.</p>
+          <p v-if="!$v.login.minLength">Username needs to be at least {{$v.login.$params.minLength.min}} symbols long.</p>
+          <p v-if="!$v.login.maxLength">Username cannot to be longer than {{$v.login.$params.maxLength.max}} symbols.</p>
         </div>
         <div class="input" :class="{invalid: $v.password.$error}">
           <label for="password">Password</label>
@@ -45,7 +45,7 @@
 <!--          <label for="terms">Accept Terms of Use</label>-->
 <!--        </div>-->
         <div class="submit">
-          <button type="submit">Sign up</button>
+          <button type="submit" :disabled="$v.$invalid">Sign up</button>
         </div>
       </form>
     </div>
@@ -59,14 +59,14 @@ import { required, minLength, maxLength, sameAs } from 'vuelidate/lib/validators
 export default {
     data () {
         return {
-            username: '',
+            login: '',
             // age: null,
             password: '',
             confirmPassword: ''
         }
     },
     validations: {
-        username: {
+        login: {
             required,
             minLength: minLength(6),
             maxLength: maxLength(12)
@@ -82,7 +82,7 @@ export default {
     methods: {
         onSubmit () {
             const formData = {
-                email: this.email,
+                login: this.login,
                 age: this.age,
                 password: this.password,
                 confirmPassword: this.confirmPassword,
