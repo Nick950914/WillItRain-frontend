@@ -1,35 +1,56 @@
-import Vue from "vue";
-import VueRouter from "vue-router";
-import Home from "../views/Home.vue";
-import Login from "../components/auth/Login.vue";
-import Signup from "../components/auth/Signup.vue";
-import Map from "../components/Map.vue";
+import Vue from 'vue';
+import VueRouter from 'vue-router';
+import Home from '../views/Home.vue';
+import Login from '../components/auth/Login.vue';
+import Signup from '../components/auth/Signup.vue';
+import Map from '../components/Map.vue';
+import SavedPlaces from '../components/SavedPlaces';
+import WeatherPrediction from '../components/WeatherPrediction';
+import PageNotFound from '../components/PageNotFound';
 
 Vue.use(VueRouter);
 
 const routes = [
     {
-        path: "/",
-        name: "home",
+        path: '/',
+        name: 'home',
         component: Home
     },
 
     {
-        path: "/login",
-        name: "login",
+        path: '/login',
+        name: 'login',
         component: Login
     },
 
     {
-        path: "/signup",
-        name: "signup",
+        path: '/signup',
+        name: 'signup',
         component: Signup
     },
 
     {
-        path: "/map",
-        name: "map",
+        path: '/map',
+        name: 'map',
         component: Map
+    },
+
+    {
+        path: '/saved',
+        name: 'saved',
+        component: SavedPlaces
+    }  ,
+
+    {
+        path: '/prediction/:place',
+        name: 'prediction',
+        component: WeatherPrediction
+    },
+
+    {
+        path: '*',
+        name: 'pagenotfound',
+        component: PageNotFound
     }
 
 
@@ -45,7 +66,7 @@ const routes = [
 ];
 
 const router = new VueRouter({
-    mode: "history",
+    mode: 'history',
     base: process.env.BASE_URL,
     routes
 });
