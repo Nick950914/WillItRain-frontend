@@ -23,6 +23,7 @@
         "indent": ["warn", 4],
         "vue/max-attributes-per-line": "off",
         "vue/order-in-components": "off",
-        "vue/html-end-tags": "off"
+        "vue/html-end-tags": "off",
+        "quotes": [2, "single", { "avoidEscape": true }]
     }
 }
