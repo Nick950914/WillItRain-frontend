@@ -4,8 +4,8 @@
       <!--      <router-link to="/">Home</router-link> |-->
       <!--      <router-link to="/about">About</router-link>-->
       <!--    </div>-->
-      <Navbar></Navbar>
-    <router-view />
+      <Navbar v-if="this.$route.name !== 'pagenotfound'"></Navbar>
+      <router-view />
   </div>
 </template>
 
