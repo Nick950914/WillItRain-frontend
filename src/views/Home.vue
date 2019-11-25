@@ -10,10 +10,10 @@
 <!--"&#45;&#45;image-url: url(https://picsum.photos/3000/2000)"-->
 <script>
 // @ is an alias to /src
-import HelloWorld from "@/components/HelloWorld.vue";
+import HelloWorld from '@/components/HelloWorld.vue';
 
 export default {
-    name: "home",
+    name: 'home',
     components: {
         HelloWorld
     }
