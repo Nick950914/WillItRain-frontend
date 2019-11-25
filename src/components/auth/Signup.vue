@@ -53,7 +53,7 @@
 </template>
 
 <script>
-// import axios from '../../axios-auth';
+import axios from 'axios';
 import { required, minLength, maxLength, sameAs } from 'vuelidate/lib/validators'
 
 export default {
@@ -83,17 +83,16 @@ export default {
         onSubmit () {
             const formData = {
                 login: this.login,
-                age: this.age,
                 password: this.password,
-                confirmPassword: this.confirmPassword,
+                // confirmPassword: this.confirmPassword,
             }
-        //   console.log(formData)
-        //   axios.post('/users.json', formData)
-        //     .then(res => console.log(res))
-        //     .catch(error => console.log(error))
-        // }
+            console.log(formData)
+            axios.post('localhost:4567/register', formData)
+                .then(res => console.log(res))
+                .catch(error => console.log(error))
         }
     }
+
 }
 </script>
 
