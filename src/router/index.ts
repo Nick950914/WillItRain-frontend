@@ -8,6 +8,8 @@ import SavedPlaces from '../components/SavedPlaces';
 import WeatherPrediction from '../components/WeatherPrediction';
 import PageNotFound from '../components/PageNotFound';
 
+import store from '../store/modules/auth'
+
 Vue.use(VueRouter);
 
 const routes = [
@@ -20,31 +22,61 @@ const routes = [
     {
         path: '/login',
         name: 'login',
-        component: Login
+        component: Login, beforeEnter(to, from, next) {
+            if (store.state.authenticated) {
+                next('/map')
+            } else {
+                next()
+            }
+        }
     },
 
     {
         path: '/signup',
         name: 'signup',
-        component: Signup
+        component: Signup, beforeEnter(to, from, next) {
+            if (store.state.authenticated) {
+                next('/map')
+            } else {
+                next()
+            }
+        }
     },
 
     {
         path: '/map',
         name: 'map',
-        component: Map
+        component: Map, beforeEnter(to, from, next) {
+            if (store.state.authenticated) {
+                next()
+            } else {
+                next('/login')
+            }
+        }
     },
 
     {
         path: '/saved',
         name: 'saved',
-        component: SavedPlaces
-    }  ,
+        component: SavedPlaces, beforeEnter(to, from, next) {
+            if (store.state.authenticated) {
+                next()
+            } else {
+                next('/login')
+            }
+        }
+    },
 
     {
         path: '/prediction/:place',
         name: 'prediction',
-        component: WeatherPrediction
+        component: WeatherPrediction, beforeEnter(to, from, next) {
+            if (store.state.authenticated) {
+                next()
+            } else {
+                next('/login')
+            }
+        }
     },
 
     {
