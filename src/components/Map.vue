@@ -84,10 +84,10 @@ export default {
                 this.places.push(this.currentPlace);
                 this.center = marker;
                 this.$store.dispatch('savedPlaces/addPlace', this.currentPlace);
-                this.$toasted.show('Place added successfully to your saved places!', {
-                    duration: 4500,
-                    type: 'success',
-                });
+                // this.$toasted.show('Place added successfully to your saved places!', {
+                //     duration: 4500,
+                //     type: 'success',
+                // });
                 console.log(this.currentPlace);
                 this.currentPlace = null;
 
