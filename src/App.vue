@@ -16,6 +16,10 @@ export default {
     components: {
         Navbar,
     },
+
+    created() {
+        this.$store.dispatch('auth/tryAutoLogin');
+    }
 };
 </script>
 
