@@ -1,4 +1,5 @@
-// import axios from "axios";
+import axios from 'axios';
+// import router from '@/router';
 
 export default {
     namespaced: true,
@@ -36,7 +37,19 @@ export default {
 
     actions: {
         addPlace(context, payload) {
-            context.commit('addPlace', payload);
+            //context.commit('addPlace', payload);
+            axios.post('http://0.0.0.0:4567/api/frontpage/location', payload.formatted_address)
+                .then(res => {
+                    console.log(res);
+                    if (res.status === 200) {
+                        context.commit('addPlace', payload);
+                        this._vm.$toasted.show('Place added successfully to your saved places!', {
+                            duration: 4500,
+                            type: 'success',
+                        });
+                    }
+                    console.log(res) })
+                .catch(error => console.log(error))
         },
 
         addMarker(context, payload) {
