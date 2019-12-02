@@ -9,10 +9,11 @@
                 <b-navbar-nav class="ml-auto">
 <!--                    <b-nav-item href="#">Login</b-nav-item>-->
 <!--                    <b-nav-item href="#">Register</b-nav-item>-->
-                    <b-nav-item><router-link to="/map">Map</router-link></b-nav-item>
-                    <b-nav-item><router-link to="/saved">Saved Places</router-link></b-nav-item>
-                    <b-nav-item><router-link to="/login">Login</router-link></b-nav-item>
-                    <b-nav-item><router-link to="/signup">Signup</router-link></b-nav-item>
+                    <b-nav-item v-if="auth"><router-link to="/map">Map</router-link></b-nav-item>
+                    <b-nav-item v-if="auth"><router-link to="/saved">Saved Places</router-link></b-nav-item>
+                    <b-nav-item class="logout" v-if="auth" @click="logout"><router-link to="/login">Logout</router-link></b-nav-item>
+                    <b-nav-item v-if="!auth"><router-link to="/login">Login</router-link></b-nav-item>
+                    <b-nav-item v-if="!auth"><router-link to="/signup">Signup</router-link></b-nav-item>
                 </b-navbar-nav>
             </b-collapse>
         </b-navbar>
@@ -20,7 +21,19 @@
 </template>
 
 <script>
-export default {};
+export default {
+    computed: {
+        auth() {
+            return this.$store.getters['auth/isAuthenticated'];
+        }
+    },
+
+    methods: {
+        logout() {
+            this.$store.commit('auth/logout');
+        }
+    }
+};
 </script>
 
 <style scoped>
